@@ -22,8 +22,7 @@ public class AuthorRepository {
         return authors.stream().filter(author -> author.getName().equals(name)).findFirst().orElse(null);
     }
 
-    public Author save(Author author) {
-        System.out.println(author);
+    public Author insert(Author author) {
         authors.add(author);
         return author;
     }
@@ -31,6 +30,13 @@ public class AuthorRepository {
     public Author deleteById(String id) {
         Author author = findById(id);
         authors.remove(author);
+        return author;
+    }
+
+    public Author updateAuthorById(String id, String name) {
+        Author author = findById(id);
+        author.setName(name);
+
         return author;
     }
 

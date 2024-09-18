@@ -33,4 +33,14 @@ public class BookRepository {
     public List<Book> findAll() {
         return books;
     }
+
+    public List<Book> findByAuthorId(String authorId){
+        return books.stream().filter(book -> book.getAuthorId().equals(authorId)).toList();
+    }
+
+    public Book updateBookById(String id, String title) {
+        Book book = findBookById(id);
+        book.setTitle(title);
+        return book;
+    }
 }

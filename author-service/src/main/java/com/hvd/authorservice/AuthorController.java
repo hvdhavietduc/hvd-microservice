@@ -18,6 +18,7 @@ public class AuthorController {
 
     @GetMapping("/{id}")
     public Author getAuthorById(@PathVariable String id) {
+
         Author author = authorService.getAuthorById(id);
         return author;
     }
@@ -35,7 +36,6 @@ public class AuthorController {
 
     @PostMapping
     public Author createAuthor(@RequestBody Author author) {
-        System.out.println(author);
-        return authorService.saveAuthor(author);
+        return authorService.createAuthor(author);
     }
 }

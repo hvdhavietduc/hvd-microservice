@@ -1,5 +1,6 @@
 package com.hvd.bookservice;
 
+import com.hvd.bookservice.dto.UpdateBook;
 import com.hvd.bookservice.response.BookResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -35,5 +36,10 @@ public class BookController {
     public ResponseEntity<Void> deleteBook(@PathVariable String id) {
         bookService.deleteBook(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Book updateBook(@PathVariable String id, @RequestBody UpdateBook book) {
+        return bookService.updateBook(id, book.getTitle(), book.getAuthorName());
     }
 }
