@@ -9,15 +9,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="kafka-message-service" />
+        <module name="auth-service" />
         <module name="book-service" />
         <module name="author-service" />
         <module name="eureka" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="main-service" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
       <module name="author-service" options="-parameters" />
       <module name="book-service" options="-parameters" />
       <module name="eureka" options="-parameters" />

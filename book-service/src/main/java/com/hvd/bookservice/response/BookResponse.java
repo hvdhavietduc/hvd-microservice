@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 @Data
 public class BookResponse {
-    private String id;
+    private Long id;
     private String title;
     private Author author;
 }

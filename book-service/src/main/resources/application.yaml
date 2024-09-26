@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: book-service
+  datasource:
+    url: jdbc:postgresql://localhost:5434/book-service-db
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: book-service-group
+
+server:
+  port: 8089
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+
+jwt:
+  secret:
+    key: 404E635266556A586E3272357538782F413F442847284B6250645367566B5970
+  token:
+    ttl: 3600000
